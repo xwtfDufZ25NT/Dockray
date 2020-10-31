@@ -7,9 +7,8 @@ ENV ENVTEST=$TEST
 RUN printenv \
     echo "RUN \n TEST:"$TEST \
     echo "ARTTEST:"$ARGTEST \
-    echo "ENVTEST:"$ENVTEST
+    echo "ENVTEST:"$ENVTEST \
+    cp test.sh / \
+    chmod +x /test.sh
     
-CMD printenv \
-    echo "CMD \n TEST:"$TEST \
-    echo "ARTTEST:"$ARGTEST \
-    echo "ENVTEST:"$ENVTEST
+CMD /test.sh
