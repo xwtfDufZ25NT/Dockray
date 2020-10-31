@@ -1,8 +1,8 @@
 FROM alpine:edge
 
-ARG ARGTEST = TEST
+ARG ARGTEST=TEST
 
-ENV ENVTEST = TEST
+ENV ENVTEST=TEST
 
 RUN printenv \
     echo "RUN \n TEST:"$TEST \
