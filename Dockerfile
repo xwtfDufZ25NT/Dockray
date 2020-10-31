@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV TEST
+ARG TEST
 
 RUN printenv \
     echo "RUN \n TEST:"$TEST \
