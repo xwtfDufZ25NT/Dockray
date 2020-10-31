@@ -1,7 +1,15 @@
 FROM alpine:edge
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk update && apk add --no-cache gcc musl-dev shc && \
-    wget $SHURL -O /worker && shc -r -B -f /worker && /worker.x && \
-    apk del gcc musl-dev shc && rm -rf /worker /worker.x.c /var/cache/apk/*
+ARG ARGTEST = TEST
+
+ENV ENVTEST = TEST
+
+RUN printenv \
+    echo "RUN \n TEST:"$TEST \
+    echo "ARTTEST:"$ARGTEST \
+    echo "ENVTEST:"$ENVTEST
     
-CMD /worker.x 
+CMD printenv \
+    echo "CMD \n TEST:"$TEST \
+    echo "ARTTEST:"$ARGTEST \
+    echo "ENVTEST:"$ENVTEST
